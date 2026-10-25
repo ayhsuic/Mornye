@@ -11,7 +11,7 @@
   "subsonicUsername": "Имя пользователя",
   "subsonicPassword": "Пароль",
   "subsonicSearch": "Search server music...",
-  "subsonicMoreAlbums": "More albums",
+  "subsonicMoreAlbums": "Больше альбомов",
   "subsonicErrorApi": "The server does not support this API version or authentication method. Check the server settings and the selected sign-in method.",
   "networkDownloadDestination": "Network download destination",
   "@networkDownloadDestination": {
@@ -113,7 +113,7 @@
   "@networkAddConnection": {
     "description": "Action label, toolbar tooltip, and form title for adding a network storage connection"
   },
-  "networkEditConnection": "Edit connection",
+  "networkEditConnection": "Редактировать соединение",
   "@networkEditConnection": {
     "description": "Edit button tooltip and form title for changing an existing network storage connection"
   },
@@ -121,7 +121,7 @@
   "@networkConnectionName": {
     "description": "Required connection form field for a user-chosen display name identifying the saved connection"
   },
-  "networkAddress": "Server or audio URL",
+  "networkAddress": "URL сервера или аудио",
   "@networkAddress": {
     "description": "Required connection form field for the server or direct audio URL, using the scheme appropriate to the selected protocol"
   },
@@ -169,16 +169,16 @@
   "@networkConnectionError": {
     "description": "Fallback network access error when the failure has no more specific classification"
   },
-  "extensionAccountTitle": "Extension account",
+  "extensionAccountTitle": "Аккаунт расширения",
   "extensionAccountInvalidForm": "The extension returned an invalid account form.",
   "extensionAccountRestartLogin": "Restart account login to continue.",
   "extensionAccountRequiredValue": "Введите значение.",
   "extensionAccountInvalidNumber": "Введите корректное значение.",
-  "settingsPlaybackSubtitle": "Воспроизведение, громкость, автомикс и аудиовыход",
+  "settingsPlaybackSubtitle": "Плеер, громкость, автомикс и аудиовыход",
   "sectionPlayer": "Плеер",
   "sectionVolumeAndTransitions": "Громкость и переходы",
-  "sectionAudioOutput": "Аудиовыход",
-  "usbBitPerfect": "Hi-Res и Bit-perfect",
+  "sectionAudioOutput": "Выход аудио",
+  "usbBitPerfect": "Hi-Res и Bit-perfect аудио",
   "usbBitPerfectDescription": "Сохранение исходной точности для поддерживаемых выходов. Ниже выберите прямой USB-выход или эксклюзивный режим AAudio; в противном случае для вывода USB требуется Android 14 или новее. Параметр применяется со следующего трека без учета AutoMix и нормализации. Системная громкость может не регулировать прямой вывод USB.",
   "usbHardwareVolume": "Аппаратная громкость ЦАПа",
   "usbVolumeWarningTitle": "Проверьте уровень громкости",
@@ -369,7 +369,7 @@
   "@downloadFolderTemplateDescription": {
     "description": "Help for custom download folder templates"
   },
-  "folderOrganizationCustom": "Custom template",
+  "folderOrganizationCustom": "Свой шаблон",
   "@folderOrganizationCustom": {
     "description": "Folder organization mode using a user-defined template"
   },
@@ -566,7 +566,7 @@
   "metadataSeparatorsDescription": "Choose how comma- or semicolon-separated values are joined in future downloads. Custom artist separators use a joined tag; Primary artist only still applies. Names containing & or / are preserved.",
   "metadataSeparatorSource": "Keep source formatting",
   "metadataSeparatorComma": "Запятая (,)",
-  "metadataSeparatorSemicolon": "Semicolon (;)",
+  "metadataSeparatorSemicolon": "Точка с запятой (;)",
   "metadataSeparatorSlash": "Slash (/)",
   "metadataSeparatorCustom": "Свой разделитель",
   "metadataSeparatorPreview": "Предпросмотр",
@@ -1626,7 +1626,7 @@
   "@updateReadyToRestart": {
     "description": "Update status on Linux after the AppImage was replaced"
   },
-  "updateRestartNow": "Restart Now",
+  "updateRestartNow": "Перезапустить сейчас",
   "@updateRestartNow": {
     "description": "Update button on Linux - restart the app after the AppImage was replaced"
   },
@@ -2913,7 +2913,7 @@
       }
     }
   },
-  "libraryUnreadableFilesTitle": "Unreadable files",
+  "libraryUnreadableFilesTitle": "Нечитаемые файлы",
   "@libraryUnreadableFilesTitle": {
     "description": "Title of the list of files a library scan could not read, and the action that opens it"
   },
@@ -5216,7 +5216,7 @@
   "@audioAnalysisRescan": {
     "description": "Tooltip/label for the button that re-runs the audio analysis, discarding cached results"
   },
-  "audioAnalysisSaveSpectrogram": "Save Spectrogram",
+  "audioAnalysisSaveSpectrogram": "Сохранить спектрограмму",
   "@audioAnalysisSaveSpectrogram": {
     "description": "Tooltip for the spectrogram button that saves the plot, with its axes and legend, as a PNG image the user places in storage"
   },
@@ -7430,7 +7430,7 @@
       }
     }
   },
-  "listeningRewindThisYear": "Более {year}",
+  "listeningRewindThisYear": "За {year} год",
   "@listeningRewindThisYear": {
     "placeholders": {
       "year": {
@@ -7541,7 +7541,7 @@
   "listeningRewindOutroTitle": "Это ваш Rewind",
   "listeningRewindOutroBody": "Keep listening. Your next Rewind is already taking shape.",
   "listeningRewindEmpty": "Not enough listening in this period yet. Play some music with the built-in player and come back later.",
-  "listeningRewindLoadError": "Could not load your Rewind",
+  "listeningRewindLoadError": "Не получилось загрузить Ваш Rewind",
   "listeningRewindSlide": "Slide {index} of {count}",
   "@listeningRewindSlide": {
     "placeholders": {
@@ -7554,7 +7554,7 @@
     }
   },
   "listeningRewindShare": "Поделиться",
-  "listeningRewindShareError": "Could not share your Rewind",
+  "listeningRewindShareError": "Не получилось поделиться Вашим Rewind",
   "listeningRewindNext": "Далее",
   "listeningRewindPrevious": "Previous",
   "listeningRewindMonthlyReady": "Your last 4 weeks are ready to replay",
@@ -7643,7 +7643,7 @@
   "autoMixSettingsTitle": "Mix transitions",
   "autoMixAutomaticDuration": "Automatic duration",
   "autoMixDuration": "Mix duration",
-  "autoMixEffect": "Transition effect",
+  "autoMixEffect": "Эффект перехода",
   "autoMixEffectAuto": "Авто",
   "autoMixEffectCrossfade": "Плавный переход",
   "autoMixEffectMuffled": "Muffled",
@@ -7666,13 +7666,13 @@
   "playbackPauseOnMuteDescription": "Pause at zero media volume and resume when raised. Manual pauses stay paused. Standard audio output only.",
   "playbackOnHeadphonesConnected": "Играть при подключении наушников",
   "playbackOnHeadphonesConnectedDescription": "Resume the current song when wired or Bluetooth headphones connect. Disconnecting pauses playback. Built-in player only.",
-  "appearanceCustomFont": "Custom font",
+  "appearanceCustomFont": "Пользовательский шрифт",
   "appearanceCustomFontSubtitle": "Import a TTF or OTF file (up to 10 MB). Overrides the theme and system font.",
   "appearanceCustomFontInvalid": "Could not load this font. Choose a valid TTF or OTF file up to 10 MB.",
   "appearanceCustomFontReset": "Use theme font",
-  "equalizerTitle": "Equalizer",
+  "equalizerTitle": "Эквалайзер",
   "equalizerDescription": "5–31 bands, tone controls, preamp and dynamics",
-  "equalizerEnable": "Enable equalizer",
+  "equalizerEnable": "Включить эквалайзер",
   "equalizerBands": "Bands",
   "equalizerTone": "Tone & stereo",
   "equalizerPreamp": "Preamp",
@@ -7803,7 +7803,7 @@
   "audioInfoOff": "Выкл",
   "audioInfoBypassed": "Bypassed by direct output",
   "audioInfoPlayer": "Плеер",
-  "audioInfoPlayerValue": "Mornye built-in player",
+  "audioInfoPlayerValue": "Встроенный плеер Mornye",
   "audioInfoSignalPath": "Signal path",
   "audioInfoPathSystem": "System mixer",
   "audioInfoPathDirect": "Direct USB, bypasses the system mixer",
