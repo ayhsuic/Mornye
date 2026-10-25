@@ -3,7 +3,7 @@
   "trackMood": "분위기",
   "subsonicAddToLibrary": "서버를 라이브러리에 추가",
   "subsonicLibraryAdded": "서버가 라이브러리에 추가됨",
-  "subsonicLibraryDescription": "Sync the server catalogue and artwork to Library. Music stays on your server. Rescan it in Local Library settings to update the catalogue.",
+  "subsonicLibraryDescription": "서버의 카탈로그와 앨범 아트를 라이브러리에 동기화합니다. 음악 파일은 서버에 그대로 유지됩니다. 카탈로그를 업데이트하려면 로컬 라이브러리 설정에서 다시 스캔하세요",
   "subsonicAuthentication": "인증",
   "subsonicToken": "솔트 토큰",
   "subsonicPasswordAuth": "패스워드",
@@ -12,7 +12,7 @@
   "subsonicPassword": "비밀번호",
   "subsonicSearch": "서버 음악 검색...",
   "subsonicMoreAlbums": "앨범 더보기",
-  "subsonicErrorApi": "The server does not support this API version or authentication method. Check the server settings and the selected sign-in method.",
+  "subsonicErrorApi": "서버가 이 API 버전 또는 인증 방식을 지원하지 않습니다. 서버 설정과 선택한 로그인 방식을 확인하세요",
   "networkDownloadDestination": "네트워크 다운로드 대상",
   "@networkDownloadDestination": {
     "description": "Files settings item that opens network storage to choose a folder for downloaded music"
@@ -73,7 +73,7 @@
   "@networkErrorPermission": {
     "description": "Network access error when the server denies account permissions for a shared folder; distinct from the device's local network permission"
   },
-  "networkErrorLocalPermission": "Local network access is not allowed. Allow Nearby devices for Mornye in Android app settings, then try again.",
+  "networkErrorLocalPermission": "로컬 네트워크에 접근할 수 없습니다. Android 앱 설정에서 Mornye의 주변 기기 접근 권한을 허용한 다음 다시 시도하세요",
   "@networkErrorLocalPermission": {
     "description": "Network access error when Android denies local network permission; Nearby devices is the Android app permission setting"
   },
@@ -365,7 +365,7 @@
   "@downloadFolderTemplate": {
     "description": "Setting for editing a relative download folder template"
   },
-  "downloadFolderTemplateDescription": "Use naming tags and / for subfolders. Saving replaces the preset album and singles layout. Empty folder names use Unknown.",
+  "downloadFolderTemplateDescription": "이름 지정 태그와 /를 사용하여 하위 폴더를 구성하세요. 저장하면 기존 앨범 및 싱글의 기본 폴더 구성이 대체됩니다. 폴더 이름이 비어 있으면 '알 수 없음'으로 표시됩니다",
   "@downloadFolderTemplateDescription": {
     "description": "Help for custom download folder templates"
   },
@@ -373,7 +373,7 @@
   "@folderOrganizationCustom": {
     "description": "Folder organization mode using a user-defined template"
   },
-  "folderTemplateInvalid": "Enter a relative folder path with supported tags. Empty folders, . and .. are not allowed.",
+  "folderTemplateInvalid": "지원되는 태그를 사용하여 상대 폴더 경로를 입력하세요. 폴더 이름을 비워 두거나 . 및 ..을 사용할 수 없습니다",
   "@folderTemplateInvalid": {
     "description": "Validation error for an invalid folder template"
   },
@@ -1614,7 +1614,7 @@
   "@updateStartingInstaller": {
     "description": "Update status on Windows - the downloaded installer is starting and the app will close"
   },
-  "updateMacInstallHint": "The disk image is open in Finder. Quit Mornye, then drag Mornye from the disk image to Applications and replace the old copy.",
+  "updateMacInstallHint": "디스크 이미지가 Finder에서 열려 있습니다. Mornye를 종료한 다음, 디스크 이미지에서 Mornye를 응용 프로그램으로 드래그하여 이전 복사본을 대체하세요",
   "@updateMacInstallHint": {
     "description": "Update instructions on macOS after the downloaded disk image opens"
   },
@@ -1622,7 +1622,7 @@
   "@updateQuitApp": {
     "description": "Update button on macOS - quit the app so the new version can replace it"
   },
-  "updateReadyToRestart": "The update is installed. Restart Mornye to use it.",
+  "updateReadyToRestart": "업데이트가 설치되었습니다. 사용하려면 Mornye를 다시 시작하세요",
   "@updateReadyToRestart": {
     "description": "Update status on Linux after the AppImage was replaced"
   },
@@ -2904,7 +2904,7 @@
   "@libraryRemoveFolderMessage": {
     "description": "Confirmation shown before removing a library source"
   },
-  "libraryUnreadableFiles": "{count, plural, =1{1 file couldn't be read} other{{count} files couldn't be read}}",
+  "libraryUnreadableFiles": "{count, plural, =1{1 개의 파일을 읽을 수 없습니다} other{{count} 개의 파일을 읽을 수 없습니다}}",
   "@libraryUnreadableFiles": {
     "description": "Count of files the last scan of a library folder skipped because it could not read them",
     "placeholders": {
@@ -2917,7 +2917,7 @@
   "@libraryUnreadableFilesTitle": {
     "description": "Title of the list of files a library scan could not read, and the action that opens it"
   },
-  "libraryUnreadableFilesSubtitle": "These files were left out of your library. They may be damaged, still downloading, or blocked by the storage app.",
+  "libraryUnreadableFilesSubtitle": "이 파일은 라이브러리에 추가되지 않았습니다. 파일이 손상되었거나, 아직 다운로드 중이거나, 저장소 앱에 의해 접근이 차단되었을 수 있습니다",
   "@libraryUnreadableFilesSubtitle": {
     "description": "Explanation above the list of files a library scan could not read"
   },
@@ -3460,7 +3460,7 @@
       }
     }
   },
-  "playbackNormalizationPreampHint": "Lower values play quieter. Normalization only turns tracks down, so it never clips.",
+  "playbackNormalizationPreampHint": "값이 낮을수록 재생 음량이 작아집니다. 음량 정규화는 트랙의 음량을 낮추기만 하므로, 소리가 클리핑되는 현상을 방지합니다",
   "@playbackNormalizationPreampHint": {
     "description": "Hint under the normalization pre-amp slider"
   },
@@ -4943,7 +4943,7 @@
   "@lyricsPickerNeedsTitle": {
     "description": "Snackbar when searching lyrics without a title or artist"
   },
-  "lyricsPickerNoProviders": "No lyrics providers are enabled. Turn some on in Settings > Lyrics.",
+  "lyricsPickerNoProviders": "가사 제공자가 활성화되어 있지 않습니다. '설정 > 가사'에서 활성화하세요",
   "@lyricsPickerNoProviders": {
     "description": "Shown in the lyrics picker when no provider is enabled"
   },
@@ -7638,7 +7638,7 @@
   "discordPresenceBuildUnavailable": "이 빌드에서는 Discord SDK를 사용할 수 없습니다",
   "discordPresenceAndroidHelp": "이 휴대폰에 Discord를 설치하고 로그인하세요. Discord에서 활동 공유를 허용하세요. 외부 플레이어는 지원되지 않습니다",
   "discordPresenceIosHelp": "Discord를 통해 계정을 연결하고 활동 공유를 허용하세요. 인증에 실패하면 다시 연결하려면 탭하세요.",
-  "discordPresenceDesktopHelp": "Keep the Discord desktop app running and signed in on this computer, and allow activity sharing in Discord.",
+  "discordPresenceDesktopHelp": "이 컴퓨터에서 Discord 데스크톱 앱을 실행하고 로그인된 상태로 유지하세요. 또한 Discord에서 활동 공유를 허용하세요",
   "discordPresenceDisconnect": "계정 연결 해제 및 삭제",
   "autoMixSettingsTitle": "믹스 전환",
   "autoMixAutomaticDuration": "자동 지속 시간",
@@ -7695,7 +7695,7 @@
   "equalizerPresetName": "프리셋 이름",
   "equalizerImport": "프리셋 가져오기",
   "equalizerExport": "프리셋 공유",
-  "equalizerImportInvalid": "Choose a valid Mornye equalizer preset (JSON, up to 64 KB).",
+  "equalizerImportInvalid": "유효한 Mornye 이퀄라이저 프리셋을 선택하세요 (JSON, 최대 64KB)",
   "equalizerSaved": "프리셋이 저장됨",
   "equalizerResetTitle": "이퀄라이저를 초기화하시겠습니까?",
   "equalizerResetDescription": "평탄한 이퀄라이저 곡선과 기본 음색 및 다이내믹 설정으로 복원합니다. 저장된 프리셋은 유지됩니다",
@@ -7854,11 +7854,11 @@
   "lyricsTextSize": "가사 텍스트 사이즈",
   "lyricsTextPreview": "좋아하는 노래의 모든 가사를 따라가 보세요",
   "appCrashTitle": "앱이 이전에 충돌함",
-  "appAnrTitle": "The app previously stopped responding",
+  "appAnrTitle": "앱이 이전에 응답하지 않았음",
   "@appAnrTitle": {
     "description": "Title for an Android ANR report, distinct from a crash."
   },
-  "appAnrMessage": "A diagnostic report was saved. You can copy it and send it to the developer to help investigate.",
+  "appAnrMessage": "진단 보고서가 저장되었습니다. 문제를 조사하는 데 도움이 되도록 보고서를 복사하여 개발자에게 보낼 수 있습니다",
   "@appAnrMessage": {
     "description": "Message shown for an Android process exit due to an ANR."
   },
@@ -7951,7 +7951,7 @@
   "desktopExitFullscreen": "전체 화면 종료",
   "desktopMinimizeWindow": "창 최소화",
   "desktopZoomWindow": "창 최소화 및 복원",
-  "desktopWindowModeUnavailable": "The window mode could not be changed. Try again after the current window transition finishes.",
+  "desktopWindowModeUnavailable": "창 모드를 변경할 수 없습니다. 현재 진행 중인 창 전환이 완료된 후 다시 시도하세요",
   "desktopMenuControls": "컨트롤",
   "desktopMenuWindow": "창",
   "desktopMenuHelp": "도움말",
@@ -7996,7 +7996,7 @@
   "@settingsKeyboardShortcuts": {
     "description": "Desktop Settings page that lists the app's keyboard shortcuts"
   },
-  "settingsKeyboardShortcutsSubtitle": "Keys for playback, navigation and panels",
+  "settingsKeyboardShortcutsSubtitle": "재생, 탐색 및 패널용 키",
   "@settingsKeyboardShortcutsSubtitle": {
     "description": "Subtitle of the Keyboard Shortcuts entry in desktop Settings"
   },
@@ -8004,11 +8004,11 @@
   "@desktopShortcutsNavigation": {
     "description": "Keyboard Shortcuts section for moving between pages"
   },
-  "desktopShortcutDismiss": "Close dialog or page",
+  "desktopShortcutDismiss": "대화 상자 또는 페이지 닫기",
   "@desktopShortcutDismiss": {
     "description": "Keyboard Shortcuts row for Escape, which leaves a text field or closes the top dialog or page"
   },
-  "desktopShortcutToggleSidebar": "Show or hide sidebar",
+  "desktopShortcutToggleSidebar": "사이드바 표시 또는 숨기기",
   "@desktopShortcutToggleSidebar": {
     "description": "Keyboard Shortcuts row for the shortcut that collapses or expands the desktop sidebar"
   }
