@@ -561,8 +561,9 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
                   ),
                   AppIconButton(
                     color: overCover ? Colors.white : null,
-                    tooltip: MaterialLocalizations.of(context)
-                        .moreButtonTooltip,
+                    tooltip: MaterialLocalizations.of(
+                      context,
+                    ).moreButtonTooltip,
                     icon: const AppIcon(Icons.more_vert),
                     onPressed: () => _showMoreActions(
                       context: context,
@@ -1040,8 +1041,9 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
         final painter = TextPainter(
           text: TextSpan(
             text: label,
-            style: Theme.of(context).textTheme.bodyLarge
-                ?.copyWith(fontSize: 15),
+            style: Theme.of(
+              context,
+            ).textTheme.bodyLarge?.copyWith(fontSize: 15),
           ),
           textDirection: Directionality.of(context),
           textScaler: MediaQuery.textScalerOf(context),
@@ -1184,8 +1186,9 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
     final sleepTimerSubtitle = sleepTimerEndsAt == null
         ? null
         : context.l10n.nowPlayingSleepTimerActive(
-            MaterialLocalizations.of(context)
-                .formatTimeOfDay(TimeOfDay.fromDateTime(sleepTimerEndsAt)),
+            MaterialLocalizations.of(
+              context,
+            ).formatTimeOfDay(TimeOfDay.fromDateTime(sleepTimerEndsAt)),
           );
     final action = context.isMornye
         ? await showMornyeContextMenu<String>(
@@ -1241,9 +1244,9 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
                     trailing: AppIcon(
                       Icons.open_in_new,
                       size: 18,
-                      color: Theme.of(sheetContext)
-                          .colorScheme
-                          .onSurfaceVariant,
+                      color: Theme.of(
+                        sheetContext,
+                      ).colorScheme.onSurfaceVariant,
                     ),
                     showDivider: false,
                     onTap: () => Navigator.of(sheetContext).pop('external'),
