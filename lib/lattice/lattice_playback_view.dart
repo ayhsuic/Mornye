@@ -128,8 +128,7 @@ class _LatticeCell extends StatelessWidget {
           fit: StackFit.expand,
           children: [
             cover,
-            if (album.isPlaying && glow != null)
-              _PlayingGlow(animation: glow!),
+            if (album.isPlaying && glow != null) _PlayingGlow(animation: glow!),
             // 底部标题条：半透明渐变，保证深色/浅色封面下都可读。
             Positioned(
               left: 0,
