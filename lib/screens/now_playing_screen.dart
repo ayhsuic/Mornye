@@ -50,6 +50,8 @@ import 'package:mornye/widgets/mornye_artwork_contrast.dart';
 import 'package:mornye/widgets/mornye_player_actions_sheet.dart';
 import 'package:mornye/widgets/mornye_context_menu.dart';
 import 'package:mornye/widgets/mornye_player_artwork.dart';
+import 'package:mornye/lattice/lattice_album.dart';
+import 'package:mornye/lattice/lattice_playback_view.dart';
 import 'package:mornye/providers/player_motion_artwork_provider.dart';
 
 export 'package:mornye/routes/now_playing_route.dart';
@@ -101,6 +103,10 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
   late final _trackMetadata =
       widget.metadataControllerFactory?.call() ?? PlayerMetadataController();
   late int _currentPage = widget.initialPage;
+
+  /// Lattice 晶格拼贴视图：移动端路由打开播放页默认进入晶格网格；
+  /// 桌面嵌入面板保持经典布局（不破坏 inspector 内容区）。
+  late bool _latticeMode = !widget.embedded;
   bool _landscape = false;
   bool _queueSheetShowing = false;
   String? _measuredMotionSource;
@@ -227,6 +233,9 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_latticeMode) {
+      return _buildLatticeScreen(context);
+    }
     final mediaItem = ref.watch(currentMediaItemProvider).value;
     final fullScreenCover = ref.watch(
       settingsProvider.select((s) => s.playerCoverStyle == 'fullscreen'),
@@ -248,6 +257,100 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
               ),
             ),
     );
+  }
+
+  /// Lattice 晶格全屏内容层：队列 → 专辑聚合 → 拼贴网格。
+  ///
+  /// 顶栏提供"收起"（复用 [_minimize]）与"切回经典播放页"；
+  /// 网格内单指平移浏览（[InteractiveViewer] 抢占垂直手势，
+  /// 因此下拉关闭由收起按钮承担）。
+  Widget _buildLatticeScreen(BuildContext context) {
+    final queue = ref.watch(playQueueProvider).value ?? const <MediaItem>[];
+    final current = ref.watch(currentMediaItemProvider).value;
+    final albums = _aggregateLatticeAlbums(queue, current);
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          if (albums.isEmpty)
+            Center(
+              child: Text(
+                context.l10n.nowPlayingNothingPlaying,
+                style: const TextStyle(color: Colors.white70),
+              ),
+            )
+          else
+            LatticePlaybackView(albums: albums),
+          // 顶栏：收起 + 视图切换。半透明黑底保证浅色封面上可读。
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            child: SafeArea(
+              bottom: false,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
+                child: Row(
+                  children: [
+                    _LatticeToolbarButton(
+                      icon: Icons.keyboard_arrow_down,
+                      tooltip: _minimizeTooltip(context),
+                      onPressed: _minimize,
+                    ),
+                    const Spacer(),
+                    _LatticeToolbarButton(
+                      icon: Icons.album_outlined,
+                      tooltip: '经典播放页',
+                      onPressed: () => setState(() => _latticeMode = false),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  /// 队列 → 专辑聚合：同一专辑只保留一个封面单元；当前播放项所在
+  /// 专辑标记 [LatticeAlbum.isPlaying]；点击封面跳转到该专辑首曲。
+  List<LatticeAlbum> _aggregateLatticeAlbums(
+    List<MediaItem> queue,
+    MediaItem? current,
+  ) {
+    if (queue.isEmpty) return const [];
+    final byKey = <String, LatticeAlbum>{};
+    final order = <String>[];
+    for (var i = 0; i < queue.length; i++) {
+      final item = queue[i];
+      final key = item.album ?? item.id;
+      final existing = byKey[key];
+      if (existing == null) {
+        order.add(key);
+        byKey[key] = LatticeAlbum(
+          id: key,
+          title: item.album ?? item.title,
+          artist: item.artist ?? '',
+          coverUrl: item.artUri?.toString(),
+          coverSeed: key.hashCode & 0x7fffffff,
+          isPlaying: current?.id == item.id,
+          onTap: () => ref.read(musicPlayerControllerProvider).jumpTo(i),
+        );
+      } else if (current?.id == item.id && !existing.isPlaying) {
+        byKey[key] = LatticeAlbum(
+          id: existing.id,
+          title: existing.title,
+          artist: existing.artist,
+          coverUrl: existing.coverUrl,
+          coverSeed: existing.coverSeed,
+          isPlaying: true,
+          onTap: existing.onTap,
+        );
+      }
+    }
+    return [for (final key in order) byKey[key]!];
   }
 
   Widget _buildPlayer(
@@ -458,9 +561,8 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
                   ),
                   AppIconButton(
                     color: overCover ? Colors.white : null,
-                    tooltip: MaterialLocalizations.of(
-                      context,
-                    ).moreButtonTooltip,
+                    tooltip: MaterialLocalizations.of(context)
+                        .moreButtonTooltip,
                     icon: const AppIcon(Icons.more_vert),
                     onPressed: () => _showMoreActions(
                       context: context,
@@ -938,9 +1040,8 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
         final painter = TextPainter(
           text: TextSpan(
             text: label,
-            style: Theme.of(
-              context,
-            ).textTheme.bodyLarge?.copyWith(fontSize: 15),
+            style: Theme.of(context).textTheme.bodyLarge
+                ?.copyWith(fontSize: 15),
           ),
           textDirection: Directionality.of(context),
           textScaler: MediaQuery.textScalerOf(context),
@@ -1083,9 +1184,8 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
     final sleepTimerSubtitle = sleepTimerEndsAt == null
         ? null
         : context.l10n.nowPlayingSleepTimerActive(
-            MaterialLocalizations.of(
-              context,
-            ).formatTimeOfDay(TimeOfDay.fromDateTime(sleepTimerEndsAt)),
+            MaterialLocalizations.of(context)
+                .formatTimeOfDay(TimeOfDay.fromDateTime(sleepTimerEndsAt)),
           );
     final action = context.isMornye
         ? await showMornyeContextMenu<String>(
@@ -1141,9 +1241,9 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
                     trailing: AppIcon(
                       Icons.open_in_new,
                       size: 18,
-                      color: Theme.of(
-                        sheetContext,
-                      ).colorScheme.onSurfaceVariant,
+                      color: Theme.of(sheetContext)
+                          .colorScheme
+                          .onSurfaceVariant,
                     ),
                     showDivider: false,
                     onTap: () => Navigator.of(sheetContext).pop('external'),
@@ -1345,5 +1445,31 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
       context,
       colorScheme,
     ).whenComplete(() => _queueSheetShowing = false);
+  }
+}
+
+/// Lattice 顶栏按钮：半透明黑底圆形，叠加在晶格封面上保证可读性。
+class _LatticeToolbarButton extends StatelessWidget {
+  const _LatticeToolbarButton({
+    required this.icon,
+    required this.tooltip,
+    required this.onPressed,
+  });
+
+  final IconData icon;
+  final String tooltip;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return Material(
+      color: Colors.black45,
+      shape: const CircleBorder(),
+      child: AppIconButton(
+        tooltip: tooltip,
+        icon: AppIcon(icon, color: Colors.white),
+        onPressed: onPressed,
+      ),
+    );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 import 'lattice_album.dart';
@@ -182,11 +183,15 @@ class _LatticeCell extends StatelessWidget {
     if (url == null || url.isEmpty) {
       return _PlaceholderCover(seed: album.coverSeed);
     }
-    return Image.network(
-      url,
+    // 使用项目内 cached_network_image：晶格大量封面时走磁盘缓存，
+    // 加载中/失败均降级为渐变占位（离线或服务器不可达）。
+    return CachedNetworkImage(
+      imageUrl: url,
       fit: BoxFit.cover,
-      // 加载失败自动降级为渐变占位（如离线/服务器不可达）。
-      errorBuilder: (_, _, _) => _PlaceholderCover(seed: album.coverSeed),
+      // 瓦片最大约半个屏幕高，768 内存缓存足以覆盖；大量封面时控制内存。
+      memCacheWidth: 768,
+      placeholder: (_, _) => _PlaceholderCover(seed: album.coverSeed),
+      errorWidget: (_, _, _) => _PlaceholderCover(seed: album.coverSeed),
     );
   }
 }
