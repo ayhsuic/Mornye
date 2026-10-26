@@ -1,18 +1,18 @@
 {
   "trackBpm": "BPM",
-  "trackMood": "Mood",
-  "subsonicAddToLibrary": "Add server to Library",
-  "subsonicLibraryAdded": "Server added to Library",
-  "subsonicLibraryDescription": "Sync the server catalogue and artwork to Library. Music stays on your server. Rescan it in Local Library settings to update the catalogue.",
-  "subsonicAuthentication": "Authentication",
+  "trackMood": "Estado de ánimo",
+  "subsonicAddToLibrary": "Añadir servidor a la Biblioteca",
+  "subsonicLibraryAdded": "Servidor añadido a la Biblioteca",
+  "subsonicLibraryDescription": "Sincroniza el catálogo del servidor y las carátulas con la Biblioteca. La música permanece en tu servidor. Vuelve a escanearlo en los ajustes de Biblioteca local para actualizar el catálogo.",
+  "subsonicAuthentication": "Autenticación",
   "subsonicToken": "Salted token",
-  "subsonicPasswordAuth": "Password",
+  "subsonicPasswordAuth": "Contraseña",
   "subsonicApiKey": "API key",
-  "subsonicUsername": "Username",
-  "subsonicPassword": "Password",
-  "subsonicSearch": "Search server music...",
-  "subsonicMoreAlbums": "More albums",
-  "subsonicErrorApi": "The server does not support this API version or authentication method. Check the server settings and the selected sign-in method.",
+  "subsonicUsername": "Nombre de usuario",
+  "subsonicPassword": "Contraseña",
+  "subsonicSearch": "Buscar música del servidor...",
+  "subsonicMoreAlbums": "Más álbumes",
+  "subsonicErrorApi": "El servidor no admite esta versión de la API ni este método de autenticación. Comprueba los ajustes del servidor y el método de inicio de sesión seleccionado.",
   "networkDownloadDestination": "Destino de descarga en red",
   "@networkDownloadDestination": {
     "description": "Files settings item that opens network storage to choose a folder for downloaded music"
@@ -73,7 +73,7 @@
   "@networkErrorPermission": {
     "description": "Network access error when the server denies account permissions for a shared folder; distinct from the device's local network permission"
   },
-  "networkErrorLocalPermission": "Local network access is not allowed. Allow Nearby devices for Mornye in Android app settings, then try again.",
+  "networkErrorLocalPermission": "No se permite el acceso a la red local. Permite el acceso a Dispositivos cercanos para Mornye en los ajustes de la aplicación de Android y vuelve a intentarlo.",
   "@networkErrorLocalPermission": {
     "description": "Network access error when Android denies local network permission; Nearby devices is the Android app permission setting"
   },
@@ -288,15 +288,15 @@
   "@homeRecent": {
     "description": "Section header for recent searches"
   },
-  "searchRecentlySearched": "Recently Searched",
+  "searchRecentlySearched": "Búsquedas recientes",
   "@searchRecentlySearched": {
     "description": "Section header for recent searches on the desktop Search page"
   },
-  "searchLibraryPrompt": "Search Your Library",
+  "searchLibraryPrompt": "Buscar en tu biblioteca",
   "@searchLibraryPrompt": {
     "description": "Shown on the desktop Search page when the Library scope has no search words yet"
   },
-  "searchBrowse": "Browse",
+  "searchBrowse": "Explorar",
   "@searchBrowse": {
     "description": "Section header for home feed tiles on the desktop Search page"
   },
@@ -361,23 +361,23 @@
   "@downloadFolderOrganization": {
     "description": "Title of the folder organization picker bottom sheet"
   },
-  "downloadFolderTemplate": "Custom Folder Structure",
+  "downloadFolderTemplate": "Estructura de carpetas personalizada",
   "@downloadFolderTemplate": {
     "description": "Setting for editing a relative download folder template"
   },
-  "downloadFolderTemplateDescription": "Use naming tags and / for subfolders. Saving replaces the preset album and singles layout. Empty folder names use Unknown.",
+  "downloadFolderTemplateDescription": "Usa etiquetas de nombre y / para las subcarpetas. Al guardar, se reemplaza el diseño predefinido de álbumes y sencillos. Los nombres de carpeta vacíos usan Desconocido.",
   "@downloadFolderTemplateDescription": {
     "description": "Help for custom download folder templates"
   },
-  "folderOrganizationCustom": "Custom template",
+  "folderOrganizationCustom": "Plantilla personalizada",
   "@folderOrganizationCustom": {
     "description": "Folder organization mode using a user-defined template"
   },
-  "folderTemplateInvalid": "Enter a relative folder path with supported tags. Empty folders, . and .. are not allowed.",
+  "folderTemplateInvalid": "Introduce una ruta de carpeta relativa con las etiquetas admitidas. Las carpetas vacías, . y .. no están permitidas.",
   "@folderTemplateInvalid": {
     "description": "Validation error for an invalid folder template"
   },
-  "folderTemplatePreview": "Example folder path",
+  "folderTemplatePreview": "Ejemplo de ruta de carpeta",
   "@folderTemplatePreview": {
     "description": "Label for a sample expanded folder template"
   },
@@ -562,15 +562,15 @@
     }
   },
   "optionsArtistTagMode": "Modo de etiqueta de artista",
-  "metadataSeparators": "Metadata separators",
-  "metadataSeparatorsDescription": "Choose how comma- or semicolon-separated values are joined in future downloads. Custom artist separators use a joined tag; Primary artist only still applies. Names containing & or / are preserved.",
-  "metadataSeparatorSource": "Keep source formatting",
+  "metadataSeparators": "Separadores de metadatos",
+  "metadataSeparatorsDescription": "Elige cómo se unen los valores separados por comas o puntos y comas en las descargas futuras. Los separadores de artista personalizados usan una etiqueta unida; la opción «Solo artista principal» se sigue aplicando. Los nombres que contienen & o / se conservan.",
+  "metadataSeparatorSource": "Mantener el formato original",
   "metadataSeparatorComma": "Comma (,)",
   "metadataSeparatorSemicolon": "Semicolon (;)",
   "metadataSeparatorSlash": "Slash (/)",
-  "metadataSeparatorCustom": "Custom separator",
+  "metadataSeparatorCustom": "Separador personalizado",
   "metadataSeparatorPreview": "Vista previa",
-  "metadataSeparatorInvalid": "Use 1–16 characters without line breaks or control characters.",
+  "metadataSeparatorInvalid": "Usa de 1 a 16 caracteres, sin saltos de línea ni caracteres de control.",
   "@optionsArtistTagMode": {
     "description": "Setting title for how artist metadata is written into files"
   },
@@ -1606,19 +1606,19 @@
   "@updateDontRemind": {
     "description": "Update button - skip this version"
   },
-  "updateViewRelease": "View Release",
+  "updateViewRelease": "Ver versión",
   "@updateViewRelease": {
     "description": "Update button - open the release page when this install cannot update itself (deb, Flatpak, no matching package)"
   },
-  "updateStartingInstaller": "Starting the installer...",
+  "updateStartingInstaller": "Iniciando el instalador...",
   "@updateStartingInstaller": {
     "description": "Update status on Windows - the downloaded installer is starting and the app will close"
   },
-  "updateMacInstallHint": "The disk image is open in Finder. Quit Mornye, then drag Mornye from the disk image to Applications and replace the old copy.",
+  "updateMacInstallHint": "La imagen de disco está abierta en Finder. Cierra Mornye y, después, arrastra Mornye desde la imagen de disco hasta Aplicaciones y reemplaza la copia anterior.",
   "@updateMacInstallHint": {
     "description": "Update instructions on macOS after the downloaded disk image opens"
   },
-  "updateQuitApp": "Quit Mornye",
+  "updateQuitApp": "Salir de Mornye",
   "@updateQuitApp": {
     "description": "Update button on macOS - quit the app so the new version can replace it"
   },
