@@ -80,6 +80,7 @@ class NowPlayingScreen extends ConsumerStatefulWidget {
     this.metadataControllerFactory,
     this.initialPage = 0,
     this.embedded = false,
+    this.latticeMode,
   });
 
   final PlayerMetadataController Function()? metadataControllerFactory;
@@ -92,6 +93,11 @@ class NowPlayingScreen extends ConsumerStatefulWidget {
   /// returns to the content, and lyrics and Up Next open in the desktop
   /// inspector beside the player instead of replacing it.
   final bool embedded;
+
+  /// Lattice 晶格拼贴视图开关。为 `null` 时按 [embedded] 推断：
+  /// 移动端路由打开播放页默认进入 Lattice，桌面嵌入面板保持经典布局。
+  /// 测试可显式传入 `false` 走经典播放器路径。
+  final bool? latticeMode;
 
   @override
   ConsumerState<NowPlayingScreen> createState() => _NowPlayingScreenState();
@@ -106,7 +112,7 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
 
   /// Lattice 晶格拼贴视图：移动端路由打开播放页默认进入晶格网格；
   /// 桌面嵌入面板保持经典布局（不破坏 inspector 内容区）。
-  late bool _latticeMode = !widget.embedded;
+  late bool _latticeMode = widget.latticeMode ?? !widget.embedded;
   bool _landscape = false;
   bool _queueSheetShowing = false;
   String? _measuredMotionSource;

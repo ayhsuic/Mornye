@@ -310,7 +310,9 @@ void main() {
             ),
       );
       palette.cached[_coverA] = cover;
-      await tester.pumpWidget(app(const NowPlayingScreen(), mornye: false));
+      await tester.pumpWidget(
+        app(NowPlayingScreen(latticeMode: false), mornye: false),
+      );
       await tester.pump();
       await tester.pump(const Duration(seconds: 1));
 

@@ -151,6 +151,8 @@ void main() {
   }
 
   NowPlayingScreen playerScreen() => NowPlayingScreen(
+    // Lattice 由运行时路由默认启用；测试显式走经典播放器路径。
+    latticeMode: false,
     metadataControllerFactory: () => PlayerMetadataController(
       parseLyrics: (raw) {
         final completion = Completer<ParsedLyrics>();

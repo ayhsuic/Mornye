@@ -170,7 +170,9 @@ void main() {
             ),
           ),
         );
-        final route = NowPlayingRoute(child: const NowPlayingScreen());
+        final route = NowPlayingRoute(
+          child: NowPlayingScreen(latticeMode: false),
+        );
         navigator.currentState!.push(route);
         await tester.pumpAndSettle();
 
