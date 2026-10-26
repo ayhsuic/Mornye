@@ -186,7 +186,7 @@ class _LatticeCell extends StatelessWidget {
       url,
       fit: BoxFit.cover,
       // 加载失败自动降级为渐变占位（如离线/服务器不可达）。
-      errorBuilder: (_, __, ___) => _PlaceholderCover(seed: album.coverSeed),
+      errorBuilder: (_, _, _) => _PlaceholderCover(seed: album.coverSeed),
     );
   }
 }
