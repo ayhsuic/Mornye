@@ -283,7 +283,10 @@ void main() {
           wrapPlayer: (player) => Column(
             children: [
               Expanded(child: player),
-              const HeroMode(enabled: false, child: MiniPlayer()),
+              const HeroMode(
+                enabled: false,
+                child: MiniPlayer(latticeMode: false),
+              ),
             ],
           ),
         );
@@ -2695,7 +2698,7 @@ void main() {
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                   padding: EdgeInsets.fromLTRB(12, 0, 12, 90),
-                  child: MiniPlayer(),
+                  child: MiniPlayer(latticeMode: false),
                 ),
               ),
             ),
@@ -2782,7 +2785,7 @@ void main() {
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.fromLTRB(12, 0, 12, 90),
-              child: MiniPlayer(),
+              child: MiniPlayer(latticeMode: false),
             ),
           ),
         ),

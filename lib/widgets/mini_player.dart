@@ -29,10 +29,19 @@ import 'package:mornye/widgets/settings_group.dart';
 import 'package:mornye/widgets/mornye_chrome.dart';
 
 class MiniPlayer extends ConsumerStatefulWidget {
-  const MiniPlayer({super.key, this.compact = false, this.bottomPadding = 8});
+  const MiniPlayer({
+    super.key,
+    this.compact = false,
+    this.bottomPadding = 8,
+    this.latticeMode,
+  });
 
   final bool compact;
   final double bottomPadding;
+
+  /// 透传给 [NowPlayingScreen] 的 Lattice 开关；为 `null` 时按
+  /// 播放页默认推断（移动端路由默认进入 Lattice 晶格网格）。
+  final bool? latticeMode;
 
   @override
   ConsumerState<MiniPlayer> createState() => _MiniPlayerState();
@@ -44,6 +53,7 @@ class _MiniPlayerState extends ConsumerState<MiniPlayer> {
     final body = _MiniPlayerBody(
       compact: widget.compact,
       bottomPadding: widget.bottomPadding,
+      latticeMode: widget.latticeMode,
     );
     if (context.isMornye) return body;
     // Material takes the track's artwork scheme, like the full player.
@@ -55,10 +65,17 @@ class _MiniPlayerState extends ConsumerState<MiniPlayer> {
 }
 
 class _MiniPlayerBody extends ConsumerStatefulWidget {
-  const _MiniPlayerBody({required this.compact, required this.bottomPadding});
+  const _MiniPlayerBody({
+    required this.compact,
+    required this.bottomPadding,
+    this.latticeMode,
+  });
 
   final bool compact;
   final double bottomPadding;
+
+  /// 透传给 [NowPlayingScreen] 的 Lattice 开关（来自 [MiniPlayer]）。
+  final bool? latticeMode;
 
   @override
   ConsumerState<_MiniPlayerBody> createState() => _MiniPlayerBodyState();
@@ -89,7 +106,7 @@ class _MiniPlayerBodyState extends ConsumerState<_MiniPlayerBody> {
   void _openNowPlaying() {
     Navigator.of(context, rootNavigator: true).push(
       NowPlayingRoute(
-        child: const NowPlayingScreen(),
+        child: NowPlayingScreen(latticeMode: widget.latticeMode),
         miniPlayerGeometry: context.isMornye
             ? () {
                 if (!mounted) return null;
