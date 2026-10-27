@@ -281,9 +281,20 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
         children: [
           if (albums.isEmpty)
             Center(
-              child: Text(
-                context.l10n.nowPlayingNothingPlaying,
-                style: const TextStyle(color: Colors.white70),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.music_note_outlined,
+                    color: Colors.white38,
+                    size: 48,
+                  ),
+                  const SizedBox(height: 12),
+                  Text(
+                    context.l10n.nowPlayingNothingPlaying,
+                    style: const TextStyle(color: Colors.white70),
+                  ),
+                ],
               ),
             )
           else
@@ -322,11 +333,27 @@ class _NowPlayingScreenState extends ConsumerState<NowPlayingScreen> {
 
   /// 队列 → 专辑聚合：同一专辑只保留一个封面单元；当前播放项所在
   /// 专辑标记 [LatticeAlbum.isPlaying]；点击封面跳转到该专辑首曲。
+  ///
+  /// 队列为空但存在当前曲目（如会话恢复/单曲播放）时，以当前曲目
+  /// 兜底为单专辑，保证晶格至少展示正在播放的封面。
   List<LatticeAlbum> _aggregateLatticeAlbums(
     List<MediaItem> queue,
     MediaItem? current,
   ) {
-    if (queue.isEmpty) return const [];
+    if (queue.isEmpty) {
+      if (current == null) return const [];
+      final key = current.album ?? current.id;
+      return [
+        LatticeAlbum(
+          id: key,
+          title: current.album ?? current.title,
+          artist: current.artist ?? '',
+          coverUrl: current.artUri?.toString(),
+          coverSeed: key.hashCode & 0x7fffffff,
+          isPlaying: true,
+        ),
+      ];
+    }
     final byKey = <String, LatticeAlbum>{};
     final order = <String>[];
     for (var i = 0; i < queue.length; i++) {
